@@ -14,7 +14,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.NoteAdd
+import androidx.compose.material.icons.automirrored.outlined.NoteAdd
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -53,7 +53,7 @@ fun NotesList(
 
     if (notes.isEmpty()) {
         EmptyState(
-            icon = Icons.Outlined.NoteAdd,
+            icon = Icons.AutoMirrored.Outlined.NoteAdd,
             title = emptyStateTitle,
             subtitle = emptyStateSubtitle,
             modifier = modifier.fillMaxSize()

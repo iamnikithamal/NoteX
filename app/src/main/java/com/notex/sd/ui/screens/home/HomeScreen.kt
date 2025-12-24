@@ -22,9 +22,9 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.PushPin
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Sort
+import androidx.compose.material.icons.automirrored.filled.Sort
 import androidx.compose.material.icons.filled.ViewAgenda
-import androidx.compose.material.icons.outlined.NoteAdd
+import androidx.compose.material.icons.automirrored.outlined.NoteAdd
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.DropdownMenu
@@ -182,7 +182,7 @@ fun HomeScreen(
                         Box {
                             IconButton(onClick = { showSortMenu = true }) {
                                 Icon(
-                                    imageVector = Icons.Default.Sort,
+                                    imageVector = Icons.AutoMirrored.Filled.Sort,
                                     contentDescription = "Sort"
                                 )
                             }
@@ -275,7 +275,7 @@ fun HomeScreen(
 
                     !uiState.hasNotes -> {
                         EmptyState(
-                            icon = Icons.Outlined.NoteAdd,
+                            icon = Icons.AutoMirrored.Outlined.NoteAdd,
                             title = stringResource(R.string.home_empty_title),
                             subtitle = stringResource(R.string.home_empty_subtitle),
                             modifier = Modifier.fillMaxSize()
