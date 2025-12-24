@@ -15,7 +15,7 @@ import androidx.compose.material.icons.filled.GridView
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.ViewList
+import androidx.compose.material.icons.automirrored.filled.ViewList
 import androidx.compose.material.icons.outlined.FolderOpen
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.DropdownMenu
@@ -126,7 +126,7 @@ fun FolderScreen(
                     IconButton(onClick = { viewModel.toggleViewMode() }) {
                         Icon(
                             imageVector = when (uiState.viewMode) {
-                                ViewMode.GRID -> Icons.Default.ViewList
+                                ViewMode.GRID -> Icons.AutoMirrored.Filled.ViewList
                                 ViewMode.LIST -> Icons.Default.GridView
                             },
                             contentDescription = "Toggle view mode"

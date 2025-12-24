@@ -27,7 +27,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CloudOff
 import androidx.compose.material.icons.filled.Folder
-import androidx.compose.material.icons.filled.Note
+import androidx.compose.material.icons.automirrored.filled.Note
 import androidx.compose.material.icons.filled.TextFormat
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -74,7 +74,7 @@ fun OnboardingScreen(
 
     val pages = listOf(
         OnboardingPage(
-            icon = Icons.Default.Note,
+            icon = Icons.AutoMirrored.Filled.Note,
             title = stringResource(R.string.onboarding_title_1),
             description = stringResource(R.string.onboarding_desc_1)
         ),

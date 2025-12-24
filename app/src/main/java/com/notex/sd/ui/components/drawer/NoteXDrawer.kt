@@ -24,10 +24,10 @@ import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.outlined.Notes
+import androidx.compose.material.icons.automirrored.outlined.Notes
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -77,7 +77,7 @@ fun NoteXDrawer(
             NavigationDrawerItem(
                 icon = {
                     Icon(
-                        imageVector = Icons.Outlined.Notes,
+                        imageVector = Icons.AutoMirrored.Outlined.Notes,
                         contentDescription = "All Notes"
                     )
                 },
@@ -139,7 +139,7 @@ fun NoteXDrawer(
             // Folders Section
             if (folders.isNotEmpty()) {
                 Spacer(modifier = Modifier.height(8.dp))
-                Divider(modifier = Modifier.padding(horizontal = 16.dp))
+                HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
