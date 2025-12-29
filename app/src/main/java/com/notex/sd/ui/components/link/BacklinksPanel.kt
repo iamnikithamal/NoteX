@@ -179,7 +179,7 @@ fun BacklinksPanel(
                             ),
                             verticalArrangement = Arrangement.spacedBy(8.dp),
                             modifier = Modifier.height(
-                                minOf(backlinks.size * 80.dp + 16.dp, 320.dp)
+                                minOf((backlinks.size * 80 + 16).dp, 320.dp)
                             )
                         ) {
                             items(

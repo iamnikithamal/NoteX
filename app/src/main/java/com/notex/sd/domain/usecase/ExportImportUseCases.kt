@@ -16,6 +16,9 @@ import java.util.Locale
 import java.util.UUID
 import javax.inject.Inject
 
+/** Default sort order for export operations (MODIFIED_DESC = 0) */
+private const val DEFAULT_SORT_ORDER = 0
+
 /**
  * Exportable note data structure.
  * Serializable for JSON export/import.
@@ -44,7 +47,7 @@ data class ExportableNote(
 data class ExportableFolder(
     val id: String,
     val name: String,
-    val color: String?,
+    val color: Int,
     val parentFolderName: String?,
     val createdAt: Long
 )
@@ -113,7 +116,7 @@ class ExportNotesUseCase @Inject constructor(
      */
     suspend fun exportToJson(outputStream: OutputStream): ExportResult {
         return try {
-            val notes = noteRepository.getAllNotes().first()
+            val notes = noteRepository.getAllNotes(DEFAULT_SORT_ORDER).first()
             val folders = folderRepository.getAllFolders().first()
 
             val folderMap = folders.associateBy { it.id }
@@ -177,7 +180,7 @@ class ExportNotesUseCase @Inject constructor(
      */
     suspend fun exportToMarkdown(outputStream: OutputStream): ExportResult {
         return try {
-            val notes = noteRepository.getAllNotes().first()
+            val notes = noteRepository.getAllNotes(DEFAULT_SORT_ORDER).first()
             val folders = folderRepository.getAllFolders().first()
             val folderMap = folders.associateBy { it.id }
 
@@ -246,7 +249,7 @@ class ExportNotesUseCase @Inject constructor(
      */
     suspend fun exportToPlainText(outputStream: OutputStream): ExportResult {
         return try {
-            val notes = noteRepository.getAllNotes().first()
+            val notes = noteRepository.getAllNotes(DEFAULT_SORT_ORDER).first()
             val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
 
             val plainText = buildString {
@@ -362,7 +365,7 @@ class ImportNotesUseCase @Inject constructor(
             }
 
             // Import notes
-            val existingNoteIds = noteRepository.getAllNotes().first().map { it.id }.toSet()
+            val existingNoteIds = noteRepository.getAllNotes(DEFAULT_SORT_ORDER).first().map { it.id }.toSet()
 
             exportData.notes.forEach { exportNote ->
                 // Skip if note with same ID already exists
